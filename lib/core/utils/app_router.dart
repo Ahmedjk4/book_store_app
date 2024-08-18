@@ -1,5 +1,6 @@
 import 'package:book_store/features/home/presentation/views/book_details_view.dart';
 import 'package:book_store/features/home/presentation/views/home_view.dart';
+import 'package:book_store/features/search/presentation/views/search_view.dart';
 import 'package:book_store/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -8,6 +9,7 @@ import 'package:turn_page_transition/turn_page_transition.dart';
 abstract class AppRouter {
   static const String homePath = '/home';
   static const String bookDetailsPath = '/bookDetails';
+  static const String searchViewPath = '/search';
 
   static final router = GoRouter(
     routes: <GoRoute>[
@@ -33,6 +35,14 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: const BookDetailsView(),
+        ),
+      ),
+      GoRoute(
+        path: '/search',
+        pageBuilder: (context, state) => buildPageWithTurnTransition(
+          context: context,
+          state: state,
+          child: const SearchView(),
         ),
       ),
     ],
