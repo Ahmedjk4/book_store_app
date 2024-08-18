@@ -11,7 +11,7 @@ class BestSellerListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverList.builder(
-      itemCount: 15,
+      itemCount: 10,
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
