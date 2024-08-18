@@ -39,7 +39,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: '/search',
-        pageBuilder: (context, state) => buildPageWithTurnTransition(
+        pageBuilder: (context, state) => buildPageWithFadeTransition(
           context: context,
           state: state,
           child: const SearchView(),
