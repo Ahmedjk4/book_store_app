@@ -10,14 +10,12 @@ class BestSellerListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      padding: EdgeInsets.zero,
-      itemCount: 30,
+    return SliverList.builder(
+      itemCount: 15,
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            context.push(AppRouter.bookDetailsPath, extra: index);
+            context.push(AppRouter.bookDetailsPath);
           },
           child: const BestSellerItem(),
         );
