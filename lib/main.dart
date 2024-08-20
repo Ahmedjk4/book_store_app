@@ -1,6 +1,7 @@
 import 'package:book_store/constants.dart';
 import 'package:book_store/core/utils/app_router.dart';
 import 'package:book_store/core/utils/app_theme.dart';
+import 'package:book_store/core/utils/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -15,6 +16,8 @@ void main() async {
       statusBarIconBrightness: Brightness.dark,
     ),
   );
+
+  setupServiceLocator();
   runApp(const BooklyApp());
 }
 
