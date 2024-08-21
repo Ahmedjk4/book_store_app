@@ -1,5 +1,4 @@
 import 'package:book_store/constants.dart';
-import 'package:book_store/core/utils/assets.dart';
 import 'package:book_store/core/utils/styles.dart';
 import 'package:book_store/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_book_image.dart';
@@ -19,7 +18,7 @@ class BestSellerItem extends StatelessWidget {
         child: Row(
           children: [
             const CustomBookImage(
-              image: AppAssets.testBookImage,
+              image: 'https://m.media-amazon.com/images/I/510+zRbr2qL._AC_UF894,1000_QL80_.jpg',
             ),
             const SizedBox(
               width: 30,

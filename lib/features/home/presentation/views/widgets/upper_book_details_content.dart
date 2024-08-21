@@ -1,4 +1,3 @@
-import 'package:book_store/core/utils/assets.dart';
 import 'package:book_store/core/utils/styles.dart';
 import 'package:book_store/core/widgets/books_action.dart';
 import 'package:book_store/features/home/presentation/views/widgets/book_rating.dart';
@@ -18,7 +17,9 @@ class UpperBookDetailsContent extends StatelessWidget {
           width: MediaQuery.sizeOf(context).width * 0.5,
           child: const Padding(
             padding: EdgeInsets.only(top: 33.2),
-            child: CustomBookImage(image: AppAssets.testBookImage),
+            child: CustomBookImage(
+                image:
+                    'https://m.media-amazon.com/images/I/510+zRbr2qL._AC_UF894,1000_QL80_.jpg'),
           ),
         ),
         const SizedBox(height: 45),

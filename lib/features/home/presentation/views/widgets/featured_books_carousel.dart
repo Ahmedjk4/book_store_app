@@ -1,5 +1,4 @@
 import 'package:book_store/core/utils/app_router.dart';
-import 'package:book_store/core/utils/assets.dart';
 import 'package:book_store/features/home/presentation/view_models/featured_books_cubit/featured_books_cubit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -27,21 +26,22 @@ class FeaturedBooksCarousel extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20.0),
             child: CarouselSlider(
               items: [
-                GestureDetector(
-                  onTap: () {
-                    context.push(AppRouter.bookDetailsPath);
-                  },
-                  child: const CustomBookImage(
-                    image: AppAssets.testBookImage,
+                for (var item in state.books)
+                  GestureDetector(
+                    onTap: () {
+                      context.push(AppRouter.bookDetailsPath);
+                    },
+                    child:  CustomBookImage(
+                      image: item.volumeInfo.imageLinks.thumbnail,
+                    ),
                   ),
-                ),
               ],
               options: CarouselOptions(
                 padEnds: false,
                 height: MediaQuery.sizeOf(context).height * .3,
                 viewportFraction: 0.5,
                 initialPage: 0,
-                enableInfiniteScroll: true,
+                enableInfiniteScroll: false,
                 reverse: false,
                 enlargeCenterPage: true,
                 enlargeFactor: 0.25,
