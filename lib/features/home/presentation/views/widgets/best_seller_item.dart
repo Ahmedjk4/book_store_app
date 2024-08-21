@@ -18,7 +18,8 @@ class BestSellerItem extends StatelessWidget {
         child: Row(
           children: [
             const CustomBookImage(
-              image: 'https://m.media-amazon.com/images/I/510+zRbr2qL._AC_UF894,1000_QL80_.jpg',
+              imageUrl:
+                  'https://m.media-amazon.com/images/I/510+zRbr2qL._AC_UF894,1000_QL80_.jpg',
             ),
             const SizedBox(
               width: 30,

@@ -18,7 +18,7 @@ class UpperBookDetailsContent extends StatelessWidget {
           child: const Padding(
             padding: EdgeInsets.only(top: 33.2),
             child: CustomBookImage(
-                image:
+                imageUrl:
                     'https://m.media-amazon.com/images/I/510+zRbr2qL._AC_UF894,1000_QL80_.jpg'),
           ),
         ),

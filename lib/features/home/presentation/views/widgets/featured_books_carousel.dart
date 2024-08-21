@@ -31,8 +31,8 @@ class FeaturedBooksCarousel extends StatelessWidget {
                     onTap: () {
                       context.push(AppRouter.bookDetailsPath);
                     },
-                    child:  CustomBookImage(
-                      image: item.volumeInfo.imageLinks.thumbnail,
+                    child: CustomBookImage(
+                      imageUrl: item.volumeInfo.imageLinks.thumbnail,
                     ),
                   ),
               ],
