@@ -32,7 +32,7 @@ class FeaturedBooksCarousel extends StatelessWidget {
                       context.push(AppRouter.bookDetailsPath);
                     },
                     child: CustomBookImage(
-                      imageUrl: item.volumeInfo.imageLinks.thumbnail,
+                      imageUrl: item.volumeInfo.imageLinks?.thumbnail ?? "",
                     ),
                   ),
               ],
