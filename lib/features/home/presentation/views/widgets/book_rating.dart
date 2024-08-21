@@ -7,7 +7,11 @@ class BookRating extends StatelessWidget {
   const BookRating({
     super.key,
     this.mainAxisAlignment,
+    required this.rating,
+    required this.reviewCount,
   });
+  final num rating;
+  final num reviewCount;
   final MainAxisAlignment? mainAxisAlignment;
 
   @override
@@ -20,11 +24,11 @@ class BookRating extends StatelessWidget {
           color: HexColor('#FFDD4F'),
         ),
         const SizedBox(width: 6.3),
-        const Text('4.8', style: Styles.textStyle16),
+        Text('$rating', style: Styles.textStyle16),
         const SizedBox(width: 5),
-        const Opacity(
+        Opacity(
           opacity: .5,
-          child: Text('(2390)', style: Styles.textStyle14),
+          child: Text('($reviewCount)', style: Styles.textStyle14),
         ),
       ],
     );

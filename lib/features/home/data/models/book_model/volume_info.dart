@@ -22,6 +22,8 @@ class VolumeInfo extends Equatable {
   final PanelizationSummary? panelizationSummary;
   final ImageLinks imageLinks;
   final String? language;
+  final num? averageRating;
+  final num? ratingsCount;
   final String? previewLink;
   final String? infoLink;
   final String? canonicalVolumeLink;
@@ -46,6 +48,8 @@ class VolumeInfo extends Equatable {
     this.previewLink,
     this.infoLink,
     this.canonicalVolumeLink,
+    this.averageRating,
+    this.ratingsCount,
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
@@ -71,11 +75,17 @@ class VolumeInfo extends Equatable {
             ? null
             : PanelizationSummary.fromJson(
                 json['panelizationSummary'] as Map<String, dynamic>),
-        imageLinks: ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
+        imageLinks:
+            ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
         language: json['language'] as String?,
         previewLink: json['previewLink'] as String?,
         infoLink: json['infoLink'] as String?,
         canonicalVolumeLink: json['canonicalVolumeLink'] as String?,
+        averageRating: json['averageRating'] == null
+            ? null
+            : json['averageRating'] as num?,
+        ratingsCount:
+            json['ratingsCount'] == null ? null : json['ratingsCount'] as num?,
       );
 
   Map<String, dynamic> toJson() => {

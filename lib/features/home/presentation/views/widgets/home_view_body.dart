@@ -1,6 +1,6 @@
 import 'package:book_store/core/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'best_seller_list_view.dart';
+import 'newest_books_sliver_list.dart';
 import 'custom_app_bar.dart';
 import 'featured_books_carousel.dart';
 
@@ -23,7 +23,7 @@ class HomeViewBody extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(left: 30.0),
                   child: Text(
-                    'Best Sellers',
+                    'Newest Books',
                     style: Styles.textStyle18,
                   ),
                 ),
@@ -34,7 +34,7 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         ),
-        BestSellerListView(),
+        NewestBooksSliverList(),
       ],
     );
   }

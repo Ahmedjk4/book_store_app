@@ -1,4 +1,4 @@
-import 'package:book_store/features/home/presentation/views/widgets/best_seller_item.dart';
+import 'package:book_store/features/home/presentation/views/widgets/custom_book_details_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultListView extends StatelessWidget {
@@ -10,7 +10,7 @@ class SearchResultListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return const Padding(
           padding: EdgeInsets.symmetric(vertical: 10.0),
-          child: BestSellerItem(),
+          // child: CustomBookDetailsListTile(),
         );
       },
       itemCount: 10,

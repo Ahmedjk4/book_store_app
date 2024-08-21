@@ -37,6 +37,8 @@ class UpperBookDetailsContent extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         const BookRating(
+          rating: 4,
+          reviewCount: 129,
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         const SizedBox(height: 37),

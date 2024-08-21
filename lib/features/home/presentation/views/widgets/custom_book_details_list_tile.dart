@@ -1,14 +1,16 @@
 import 'package:book_store/constants.dart';
 import 'package:book_store/core/utils/styles.dart';
+import 'package:book_store/features/home/data/models/book_model/book_model.dart';
 import 'package:book_store/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
-class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({
+class CustomBookDetailsListTile extends StatelessWidget {
+  const CustomBookDetailsListTile({
     super.key,
+    required this.book,
   });
-
+  final BookModel book;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,9 +19,8 @@ class BestSellerItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            const CustomBookImage(
-              imageUrl:
-                  'https://m.media-amazon.com/images/I/510+zRbr2qL._AC_UF894,1000_QL80_.jpg',
+            CustomBookImage(
+              imageUrl: book.volumeInfo.imageLinks.thumbnail,
             ),
             const SizedBox(
               width: 30,
@@ -33,7 +34,7 @@ class BestSellerItem extends StatelessWidget {
                     child: Text(
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      'Harry Potter and the Goblet of Fire',
+                      book.volumeInfo.title ?? "Error Loading Book Title",
                       style: Styles.textStyle20
                           .copyWith(fontFamily: kGtSectraFine),
                     ),
@@ -42,7 +43,7 @@ class BestSellerItem extends StatelessWidget {
                   Opacity(
                     opacity: 0.7,
                     child: Text(
-                      'Author Name',
+                      book.volumeInfo.authors?[0] ?? "Error Loading Author",
                       style: Styles.textStyle14
                           .copyWith(fontWeight: FontWeight.w500),
                     ),
@@ -51,7 +52,7 @@ class BestSellerItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        '19.99 ',
+                        'Free ',
                         style: Styles.textStyle20.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -64,7 +65,10 @@ class BestSellerItem extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      const BookRating(),
+                      BookRating(
+                        rating: book.volumeInfo.averageRating ?? 0,
+                        reviewCount: book.volumeInfo.ratingsCount ?? 0,
+                      ),
                     ],
                   ),
                 ],
