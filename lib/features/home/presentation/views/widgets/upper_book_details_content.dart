@@ -43,17 +43,19 @@ class UpperBookDetailsContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         const SizedBox(height: 37),
-        const Row(
+        Row(
           children: [
             Expanded(
               child: BooksAction(
-                text: 'Download',
+                book: book,
+                text: 'Free',
                 location: BooksActionLocation.left,
               ),
             ),
             Expanded(
               child: BooksAction(
-                text: 'Free Preview',
+                book: book,
+                text: 'Download',
                 location: BooksActionLocation.right,
               ),
             ),

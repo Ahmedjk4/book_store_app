@@ -1,4 +1,6 @@
+import 'package:book_store/core/utils/functions/launch_book_url.dart';
 import 'package:book_store/core/utils/styles.dart';
+import 'package:book_store/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 class BooksAction extends StatelessWidget {
@@ -6,9 +8,11 @@ class BooksAction extends StatelessWidget {
     super.key,
     required this.location,
     required this.text,
+    required this.book,
   });
   final BooksActionLocation location;
   final String text;
+  final BookModel book;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,7 +41,14 @@ class BooksAction extends StatelessWidget {
               : const BorderRadius.only(
                   topLeft: Radius.circular(15),
                   bottomLeft: Radius.circular(15)),
-          onTap: () {},
+          onTap: () async {
+            if (book.accessInfo!.pdf!.isAvailable!) {
+              await launchBookUrl(context,
+                  url: book.accessInfo!.pdf!.acsTokenLink!);
+            } else {
+              await launchBookUrl(context, url: book.volumeInfo.previewLink!);
+            }
+          },
           child: Container(
             height: 48,
             decoration: BoxDecoration(
