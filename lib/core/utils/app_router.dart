@@ -4,6 +4,8 @@ import 'package:book_store/features/home/data/repos/home_repo_impl.dart';
 import 'package:book_store/features/home/presentation/view_models/similar_books_cubit/similar_books_cubit.dart';
 import 'package:book_store/features/home/presentation/views/book_details_view.dart';
 import 'package:book_store/features/home/presentation/views/home_view.dart';
+import 'package:book_store/features/search/data/repos/search_repo_impl.dart';
+import 'package:book_store/features/search/presentation/view_models/search_books_cubit/search_cubit_cubit.dart';
 import 'package:book_store/features/search/presentation/views/search_view.dart';
 import 'package:book_store/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +56,12 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithFadeTransition(
           context: context,
           state: state,
-          child: const SearchView(),
+          child: BlocProvider(
+            create: (context) => SearchBooksCubit(
+              getIt.get<SearchRepoImpl>(),
+            ),
+            child: const SearchView(),
+          ),
         ),
       ),
     ],

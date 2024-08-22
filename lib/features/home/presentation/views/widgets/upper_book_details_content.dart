@@ -48,14 +48,14 @@ class UpperBookDetailsContent extends StatelessWidget {
             Expanded(
               child: BooksAction(
                 book: book,
-                text: 'Free',
+                text: 'Preview',
                 location: BooksActionLocation.left,
               ),
             ),
             Expanded(
               child: BooksAction(
                 book: book,
-                text: 'Download',
+                text: getButtonText(book),
                 location: BooksActionLocation.right,
               ),
             ),
@@ -63,5 +63,13 @@ class UpperBookDetailsContent extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String getButtonText(BookModel book) {
+    if (book.accessInfo!.pdf!.isAvailable == false) {
+      return 'PDF Not Available';
+    } else {
+      return 'Download';
+    }
   }
 }

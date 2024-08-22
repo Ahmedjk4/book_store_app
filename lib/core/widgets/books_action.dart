@@ -1,3 +1,4 @@
+import 'package:book_store/core/utils/functions/custom_snack_bar.dart';
 import 'package:book_store/core/utils/functions/launch_book_url.dart';
 import 'package:book_store/core/utils/styles.dart';
 import 'package:book_store/features/home/data/models/book_model/book_model.dart';
@@ -13,6 +14,7 @@ class BooksAction extends StatelessWidget {
   final BooksActionLocation location;
   final String text;
   final BookModel book;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,11 +44,15 @@ class BooksAction extends StatelessWidget {
                   topLeft: Radius.circular(15),
                   bottomLeft: Radius.circular(15)),
           onTap: () async {
-            if (book.accessInfo!.pdf!.isAvailable!) {
+            if (book.accessInfo!.pdf!.isAvailable! &&
+                location == BooksActionLocation.right) {
               await launchBookUrl(context,
                   url: book.accessInfo!.pdf!.acsTokenLink!);
+            } else if (book.accessInfo!.pdf!.isAvailable! == false &&
+                location == BooksActionLocation.right) {
+              customSnackBar(context, 'Book is not available');
             } else {
-              await launchBookUrl(context, url: book.volumeInfo.previewLink!);
+              launchBookUrl(context, url: book.volumeInfo.previewLink);
             }
           },
           child: Container(
