@@ -29,7 +29,7 @@ class FeaturedBooksCarousel extends StatelessWidget {
                 for (var item in state.books)
                   GestureDetector(
                     onTap: () {
-                      context.push(AppRouter.bookDetailsPath);
+                      context.push(AppRouter.bookDetailsPath, extra: item);
                     },
                     child: CustomBookImage(
                       imageUrl: item.volumeInfo.imageLinks?.thumbnail ?? "",
