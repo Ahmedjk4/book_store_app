@@ -1,4 +1,4 @@
-import 'package:book_store/features/home/presentation/views/widgets/custom_book_details_list_tile.dart';
+// import 'package:book_store/features/home/presentation/views/widgets/custom_book_details_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultListView extends StatelessWidget {

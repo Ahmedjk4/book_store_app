@@ -23,7 +23,8 @@ class NewestBooksSliverList extends StatelessWidget {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  context.push(AppRouter.bookDetailsPath);
+                  context.push(AppRouter.bookDetailsPath,
+                      extra: state.books[index]);
                 },
                 child: CustomBookDetailsListTile(
                   book: state.books[index],

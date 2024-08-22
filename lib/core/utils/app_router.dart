@@ -1,8 +1,13 @@
+import 'package:book_store/core/utils/service_locator.dart';
+import 'package:book_store/features/home/data/models/book_model/book_model.dart';
+import 'package:book_store/features/home/data/repos/home_repo_impl.dart';
+import 'package:book_store/features/home/presentation/view_models/similar_books_cubit/similar_books_cubit.dart';
 import 'package:book_store/features/home/presentation/views/book_details_view.dart';
 import 'package:book_store/features/home/presentation/views/home_view.dart';
 import 'package:book_store/features/search/presentation/views/search_view.dart';
 import 'package:book_store/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:turn_page_transition/turn_page_transition.dart';
 
@@ -34,7 +39,14 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithTurnTransition(
           context: context,
           state: state,
-          child: const BookDetailsView(),
+          child: BlocProvider(
+            create: (context) => SimilarBooksCubit(
+              getIt.get<HomeRepoImpl>(),
+            ),
+            child: BookDetailsView(
+              book: state.extra as BookModel,
+            ),
+          ),
         ),
       ),
       GoRoute(
