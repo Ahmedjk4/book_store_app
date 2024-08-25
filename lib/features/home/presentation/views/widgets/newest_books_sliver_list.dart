@@ -1,6 +1,6 @@
 import 'package:book_store/core/utils/app_router.dart';
 import 'package:book_store/core/widgets/custom_error_widget.dart';
-import 'package:book_store/core/widgets/custom_loading_indicator.dart';
+import 'package:book_store/core/widgets/custom_loading_effect.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_book_details_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,8 +36,10 @@ class NewestBooksSliverList extends StatelessWidget {
           return SliverToBoxAdapter(
               child: CustomErrorWidget(errMessage: state.errMessage));
         } else {
-          return const SliverToBoxAdapter(
-            child: CustomLoadingIndicator(),
+          return const SliverFillRemaining(
+            child: CustomLoadingEffect(
+              axis: Axis.vertical,
+            ),
           );
         }
       },

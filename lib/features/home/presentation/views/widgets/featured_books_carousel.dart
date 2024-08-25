@@ -1,11 +1,11 @@
 import 'package:book_store/core/utils/app_router.dart';
+import 'package:book_store/core/widgets/custom_loading_effect.dart';
 import 'package:book_store/features/home/presentation/view_models/featured_books_cubit/featured_books_cubit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/widgets/custom_error_widget.dart';
-import '../../../../../core/widgets/custom_loading_indicator.dart';
 import 'custom_book_image.dart';
 
 class FeaturedBooksCarousel extends StatelessWidget {
@@ -51,7 +51,10 @@ class FeaturedBooksCarousel extends StatelessWidget {
             ),
           );
         } else {
-          return const CustomLoadingIndicator();
+          return SizedBox(
+            height: MediaQuery.sizeOf(context).height * .15,
+            child: const CustomLoadingEffect(axis: Axis.horizontal),
+          );
         }
       },
     );

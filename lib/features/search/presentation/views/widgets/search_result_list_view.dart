@@ -1,4 +1,5 @@
 // import 'package:book_store/features/home/presentation/views/widgets/custom_book_details_list_tile.dart';
+import 'package:book_store/core/widgets/custom_loading_effect.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_book_details_list_tile.dart';
 import 'package:book_store/features/search/presentation/view_models/search_books_cubit/search_cubit_cubit.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,9 @@ class SearchResultListView extends StatelessWidget {
         } else if (state is SearchBooksFailure) {
           return Text(state.errMessage);
         } else if (state is SearchBooksLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const CustomLoadingEffect(
+            axis: Axis.vertical,
+          );
         } else {
           return const SizedBox();
         }

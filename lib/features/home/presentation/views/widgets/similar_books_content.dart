@@ -10,17 +10,17 @@ class SimilarBooksContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-         SizedBox(
+        SizedBox(
           height: 50,
         ),
-         Align(
+        Align(
           alignment: Alignment.centerLeft,
           child: Text('You can also like'),
         ),
-         SizedBox(
+        SizedBox(
           height: 16,
         ),
-         SimilarBooksListView(),
+        SimilarBooksListView(),
       ],
     );
   }

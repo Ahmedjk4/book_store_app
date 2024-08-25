@@ -42,10 +42,15 @@ class CustomBookDetailsListTile extends StatelessWidget {
                   const SizedBox(height: 3),
                   Opacity(
                     opacity: 0.7,
-                    child: Text(
-                      book.volumeInfo.authors?[0] ?? "Error Loading Author",
-                      style: Styles.textStyle14
-                          .copyWith(fontWeight: FontWeight.w500),
+                    child: SizedBox(
+                      width: MediaQuery.sizeOf(context).width * .5,
+                      child: Text(
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        book.volumeInfo.authors?[0] ?? "Error Loading Author",
+                        style: Styles.textStyle14
+                            .copyWith(fontWeight: FontWeight.w500),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 3),
