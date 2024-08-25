@@ -1,7 +1,7 @@
 import 'package:book_store/core/utils/app_router.dart';
 import 'package:book_store/core/widgets/custom_error_widget.dart';
 import 'package:book_store/core/widgets/custom_loading_effect.dart';
-import 'package:book_store/features/home/presentation/views/widgets/custom_book_details_list_tile.dart';
+import 'package:book_store/core/widgets/custom_book_details_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
